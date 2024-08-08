@@ -1,0 +1,9 @@
+@charset "UTF-8";.main {
+  background: #ffffff; /* 흰색 배경 */
+  width: 100%; /* 100%로 변경하여 반응형으로 설정 */
+  height: calc(100vh - 122.95px); /* 전체 높이에서 헤더와 푸터의 높이 합산 */
+  position: absolute;
+  left: 0;
+  top: 47.79px; /* 헤더 바로 아래 위치 */
+  z-index: 0;
+}

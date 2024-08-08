@@ -1,0 +1,10 @@
+.footer {
+    background: #123478;
+    width: 100%; /* 100%로 변경하여 반응형으로 설정 */
+    height: 74.16px;
+    position: absolute;
+    left: 0;
+    top: calc(100vh - 74.16px); /* 화면의 높이에 따라 푸터 위치 조정 */
+    z-index: 1;
+  }
+  
