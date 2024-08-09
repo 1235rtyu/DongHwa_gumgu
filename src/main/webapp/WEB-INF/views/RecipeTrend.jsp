@@ -5,9 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>History Trend</title>
-<link rel="stylesheet" href="resources/style.css">
+  <link rel="stylesheet" href="resources/style.css">
 <link rel="shortcut icon" href="resources/image/KPF.jpg" type="image/x-icon" />
-<jsp:include page="pluginpage.jsp" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <!-- 하이차트 라이브러리 포함 -->
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -114,112 +115,156 @@ html, body {
 
 </head>
 <body>
- 
+    <div class="container">
+        <div class="left">
+            <!-- 왼쪽 4칸에 들어갈 내용 -->
+            <div class="pen-settings">
+                <h2>Pen Groups Settings</h2>
+                
+                <!-- 팬 검색 -->
+                <label for="pen-search">Search Pen:</label>
+                <input type="text" id="pen-search" placeholder="Search Pen...">
 
-   <div class="container">
-       <div class="left">
-           <!-- 왼쪽 4칸에 들어갈 내용 -->
-           <div class="pen-settings">
-               <h2>Pen Groups Settings</h2>
-               
-               <!-- 팬 검색 -->
-               <label for="pen-search">Search Pen:</label>
-               <input type="text" id="pen-search" placeholder="Search Pen...">
+                <!-- 팬 목록 -->
+                <label for="pen-list">Pen List:</label>
+                <select id="pen-list" multiple></select>
 
-               <!-- 팬 목록 -->
-               <label for="pen-list">Pen List:</label>
-               <select id="pen-list" multiple>
-                   <option>Pen 1</option>
-                   <option>Pen 2</option>
-                   <option>Pen 3</option>
-                   <option>Pen 4</option>
-               </select>
+                <!-- 컬러 설정 -->
+                <label for="pen-color">Color:</label>
+                <input type="color" id="pen-color" value="#ff0000">
 
-               <!-- 컬러 설정 -->
-               <label for="pen-color">Color:</label>
-               <input type="color" id="pen-color" value="#ff0000">
+                <!-- Add 버튼 -->
+                <button type="button">Add</button>
+            </div>
+        </div>
+        <div class="right">
+            <!-- 오른쪽 6칸에 들어갈 내용 -->
+            <div id="container"></div>
+        </div>
+    </div>
 
-               <!-- Add 버튼 -->
-               <button type="button">Add</button>
-           </div>
-       </div>
-       <div class="right">
-           <!-- 오른쪽 6칸에 들어갈 내용 -->
-           <div id="container"></div>
-       </div>
-   </div>
+    <script>
+//전역변수
+    
+//로드
+    $(document).ready(function() {
 
-   <script>
-   // 하이차트 초기화 코드
-   document.addEventListener('DOMContentLoaded', function () {
-       Highcharts.chart('container', {
-           chart: {
-               type: 'line'
-           },
-           title: {
-               text: 'Monthly Average Temperature'
-           },
-           subtitle: {
-               text: 'Source: WorldClimate.com'
-           },
-           xAxis: {
-               categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-           },
-           yAxis: {
-               title: {
-                   text: 'Temperature (°C)'
-               }
-           },
-           tooltip: {
-               enabled: true,
-               shared: true,
-               crosshairs: true
-           },
-           legend: {
-               layout: 'horizontal',
-               align: 'center',
-               verticalAlign: 'bottom'
-           },
-           plotOptions: {
-               line: {
-                   dataLabels: {
-                       enabled: true
-                   },
-                   enableMouseTracking: true
-               }
-           },
-           series: [{
-               name: 'Tokyo',
-               data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-           }, {
-               name: 'New York',
-               data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-           }, {
-               name: 'Berlin',
-               data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-           }, {
-               name: 'London',
-               data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-           }],
-           responsive: {
-               rules: [{
-                   condition: {
-                       maxWidth: 500
-                   },
-                   chartOptions: {
-                       legend: {
-                           layout: 'horizontal',
-                           align: 'center',
-                           verticalAlign: 'bottom'
-                       }
-                   }
-               }]
-           },
-           exporting: {
-               enabled: true
-           }
-       });
-   });
-   </script>
+//        loadPenList(); // 팬 목록을 로드
+test();
+test2();
+
+        // 하이차트 초기화 코드
+        Highcharts.chart('container', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Monthly Average Temperature'
+            },
+            subtitle: {
+                text: 'Source: WorldClimate.com'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperature (°C)'
+                }
+            },
+            tooltip: {
+                enabled: true,
+                shared: true,
+                crosshairs: true
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: true
+                }
+            },
+            series: [{
+                // 데이터 시리즈를 여기에 추가
+            }],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            },
+            exporting: {
+                enabled: true
+            }
+        });
+    });
+
+//이벤트
+
+//함수
+	// 팬 목록을 AJAX를 통해 가져오는 함수
+	function loadPenList() {
+	    $.ajax({
+	        url: '/donghwa/api/pens/list',
+	        type: 'GET',
+	        dataType: 'json',
+	        success: function(data) {
+	            const penList = $('#pen-list');
+	            penList.empty(); // 기존 항목 제거
+	            $.each(data, function(index, pen) {
+	                const option = $('<option></option>');
+	                option.val(pen.id);
+	                option.text('Pen ' + pen.id); // 또는 적절한 이름
+	                penList.append(option);
+	            });
+	        },
+	        error: function(xhr, status, error) {
+	            console.error('Error fetching pen list:', error);
+	        }
+	    });
+	}
+
+    function test(){
+        $.ajax({
+            url:"/donghwa/api/pens/test",
+            type:"post",
+            data:{
+                "a":"A",
+                "b":"B"
+            },success:function(ss){
+                console.log(ss);
+            }
+        });
+	}
+
+    function test2(){
+        $.ajax({
+            url:"/donghwa/api/pens/test2",
+            type:"post",
+            data:{
+                "a":"A",
+                "b":"B"
+            },success:function(ss){
+                console.log(ss);
+            }
+        });
+	}
+
+	
+    </script>
 </body>
 </html>

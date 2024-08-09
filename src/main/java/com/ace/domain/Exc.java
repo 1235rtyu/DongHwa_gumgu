@@ -1,6 +1,7 @@
 package com.ace.domain;
 
 public class Exc {
+	private Integer id;
     private String c1;
     private String c2;
     private String c3;
@@ -33,6 +34,15 @@ public class Exc {
     private String c30;
 
     // 각 필드에 대한 getter와 setter 추가
+    
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getC1() {
         return c1;

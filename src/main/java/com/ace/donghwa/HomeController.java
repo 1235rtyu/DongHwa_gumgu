@@ -1,4 +1,4 @@
-package com.ace.controller;
+package com.ace.donghwa;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +24,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -142,6 +143,19 @@ public class HomeController {
 		return response;
 	}
 
+    
+    @RequestMapping(value = "/api/pens/test", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> setPensTest(@RequestParam String a, @RequestParam String b) {
+    	
+    	Map<String, Object> rtnMap = new HashMap<String, Object>();
+    	
+    	rtnMap.put("aaa",a);
+    	rtnMap.put("bbb",b);
+    	
+    	return rtnMap; // 모든 Pen 객체 리스트를 반환
+    }	
+	
 	public static class NodeValuePair {
 		private String nodeId;
 		private short value;

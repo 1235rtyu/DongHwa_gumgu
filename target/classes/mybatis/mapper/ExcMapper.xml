@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ace.dao.ExcDao">
+
+    <select id="findAll" resultType="com.ace.domain.Exc">
+        SELECT * FROM exc;
+    </select>
+
+    <select id="findById" parameterType="int" resultType="com.ace.domain.Exc">
+        SELECT * FROM exc WHERE id = #{id};
+    </select>
+
+    <insert id="insert" parameterType="com.ace.domain.Exc">
+        INSERT INTO exc (c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30)
+        VALUES (#{c1}, #{c2}, #{c3}, #{c4}, #{c5}, #{c6}, #{c7}, #{c8}, #{c9}, #{c10}, #{c11}, #{c12}, #{c13}, #{c14}, #{c15}, #{c16}, #{c17}, #{c18}, #{c19}, #{c20}, #{c21}, #{c22}, #{c23}, #{c24}, #{c25}, #{c26}, #{c27}, #{c28}, #{c29}, #{c30});
+    </insert>
+
+    <update id="update" parameterType="com.ace.domain.Exc">
+        UPDATE exc SET
+        c1 = #{c1}, c2 = #{c2}, c3 = #{c3}, c4 = #{c4}, c5 = #{c5}, c6 = #{c6}, c7 = #{c7}, c8 = #{c8}, c9 = #{c9}, c10 = #{c10}, c11 = #{c11}, c12 = #{c12}, c13 = #{c13}, c14 = #{c14}, c15 = #{c15}, c16 = #{c16}, c17 = #{c17}, c18 = #{c18}, c19 = #{c19}, c20 = #{c20}, c21 = #{c21}, c22 = #{c22}, c23 = #{c23}, c24 = #{c24}, c25 = #{c25}, c26 = #{c26}, c27 = #{c27}, c28 = #{c28}, c29 = #{c29}, c30 = #{c30}
+        WHERE id = #{id};
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM exc WHERE id = #{id};
+    </delete>
+
+</mapper>

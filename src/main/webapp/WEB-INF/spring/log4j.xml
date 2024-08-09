@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.gumgu.controller">
+	<logger name="com.donghwa.controller">
 		<level value="info" />
 	</logger>
 	

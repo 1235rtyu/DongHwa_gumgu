@@ -1,11 +1,12 @@
-package com.ace.service;
+package com.ace.dao;
 
 import java.util.List;
 import com.ace.domain.Exc;
 
-public interface ExcService {
+public interface ExcDao {
     List<Exc> findAll();
     Exc findById(int id);
-    void saveOrUpdate(Exc exc);
+    void insert(Exc exc);
+    void update(Exc exc);
     void delete(int id);
 }
